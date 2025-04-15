@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,20 +9,20 @@
     <meta name="description" content="Transform handwritten notes into digital text with InkWise, a smart handwriting recognition tool. Convert images or draw directly to get editable text.">
     <meta name="keywords" content="handwriting recognition, text conversion, digital notes, OCR, image to text, draw to text">
 
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
 
-    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
     <style>
         #handwritingCanvas {
             border: 1px solid #000;
@@ -50,18 +51,18 @@
         <div class="branding">
 
             <div class="container position-relative d-flex align-items-center justify-content-between">
-                <a href="index.html" class="logo d-flex align-items-center">
+                <a href="{% url 'index' %}" class="logo d-flex align-items-center">
                     <h1 class="sitename">InkWise</h1>
                 </a>
 
                 <nav id="navmenu" class="navmenu">
                     <ul>
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="pricing.html">Convert Now</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="{% url 'index' %}" class="active">Home</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'services' %}">Services</a></li>
+                        <li><a href="{% url 'pricing' %}">Convert Now</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                        <li><a href="{% url 'team' %}">Our Team</a></li>
                     </ul>
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
                 </nav>
@@ -73,8 +74,6 @@
     </header>
     </body>
 
-    </html>
-
     <main class="main">
 
         <section id="hero" class="hero section">
@@ -82,29 +81,29 @@
             <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
                 <div class="carousel-item active">
-                    <img src="assets/img/hero-carousel/hero-carousel-1.jpg" alt="Handwriting to Digital Text">
+                    <img src="{% static 'assets/img/hero-carousel/hero-carousel-1.jpg' %}" alt="Handwriting to Digital Text">
                     <div class="carousel-container">
                         <h2><span>InkWise:</span> Smart Handwriting Recognition</h2>
                         <p>Effortlessly transform your handwritten notes into digital text. InkWise is designed to make your writing accessible, searchable, and shareable.</p>
-                        <a href="pricing.html" class="btn-get-started">Start Converting Now</a>
+                        <a href="{% url 'pricing' %}" class="btn-get-started">Start Converting Now</a>
                     </div>
                 </div>
 
                 <div class="carousel-item">
-                    <img src="assets/img/hero-carousel/hero-carousel-2.jpg" alt="Digitize Your Notes">
+                    <img src="{% static 'assets/img/hero-carousel/hero-carousel-2.jpg' %}" alt="Digitize Your Notes">
                     <div class="carousel-container">
                         <h2>Accurate Digitization for Your Notes</h2>
                         <p>Quickly digitize notes, documents, and any handwritten text, saving you time and boosting productivity.</p>
-                        <a href="pricing.html" class="btn-get-started">Try It Today</a>
+                        <a href="{% url 'pricing' %}" class="btn-get-started">Try It Today</a>
                     </div>
                 </div>
 
                 <div class="carousel-item">
-                    <img src="assets/img/hero-carousel/hero-carousel-3.jpg" alt="Editable Digital Text">
+                    <img src="{% static 'assets/img/hero-carousel/hero-carousel-3.jpg' %}" alt="Editable Digital Text">
                     <div class="carousel-container">
                         <h2>Easy Editing and Sharing</h2>
                         <p>Convert your handwriting into editable and shareable digital text. Ideal for students, professionals, and anyone who needs to digitize notes fast.</p>
-                        <a href="pricing.html" class="btn-get-started">Convert Your Text</a>
+                        <a href="{% url 'pricing' %}" class="btn-get-started">Convert Your Text</a>
                     </div>
                 </div>
 
@@ -125,7 +124,7 @@
                     <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="100">
                         <div class="featured-item position-relative">
                             <div class="icon"><i class="bi bi-pencil-square icon"></i></div>
-                            <h4><a href="pricing.html" class="stretched-link">High Accuracy Recognition</a></h4>
+                            <h4><a href="{% url 'pricing' %}" class="stretched-link">High Accuracy Recognition</a></h4>
                             <p>Advanced technology for converting handwriting to digital text with exceptional accuracy.</p>
                         </div>
                     </div>
@@ -133,7 +132,7 @@
                     <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="200">
                         <div class="featured-item position-relative">
                             <div class="icon"><i class="bi bi-file-earmark-text icon"></i></div>
-                            <h4><a href="pricing.html" class="stretched-link">Fast Conversion Speed</a></h4>
+                            <h4><a href="{% url 'pricing' %}" class="stretched-link">Fast Conversion Speed</a></h4>
                             <p>Quickly transform your handwritten notes into editable digital text.</p>
                         </div>
                     </div>
@@ -141,7 +140,7 @@
                     <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="300">
                         <div class="featured-item position-relative">
                             <div class="icon"><i class="bi bi-share icon"></i></div>
-                            <h4><a href="pricing.html" class="stretched-link">Easy Sharing Capabilities</a></h4>
+                            <h4><a href="{% url 'pricing' %}" class="stretched-link">Easy Sharing Capabilities</a></h4>
                             <p>Share your converted text with colleagues, friends, or students in just a few clicks.</p>
                         </div>
                     </div>
@@ -158,7 +157,7 @@
 
                 <div class="row gy-4">
                     <div class="col-lg-6 order-1 order-lg-2">
-                        <img src="assets/img/about.jpg" class="img-fluid" alt="About InkWise">
+                        <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="About InkWise">
                     </div>
                     <div class="col-lg-6 order-2 order-lg-1 content">
                         <h3>Digitize Your Handwriting with InkWise</h3>
@@ -193,7 +192,7 @@
                             <div class="icon">
                                 <i class="bi bi-cloud-upload"></i>
                             </div>
-                            <a href="pricing.html" class="stretched-link">
+                            <a href="{% url 'pricing' %}" class="stretched-link">
                                 <h3>Image Upload Conversion</h3>
                             </a>
                             <p>Upload images of your handwritten notes for quick and precise conversion.</p>
@@ -205,24 +204,58 @@
                             <div class="icon">
                                 <i class="bi bi-pencil-square"></i>
                             </div>
-                            <a href="pricing.html" class="stretched-link">
+                            <a href="{% url 'pricing' %}" class="stretched-link">
                                 <h3>Direct Drawing Conversion</h3>
                             </a>
                             <p>Use the canvas to draw or write directly and convert the text in real-time.</p>
                         </div>
                     </div>
 
-
-                    
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                         <div class="service-item position-relative">
                             <div class="icon">
                                 <i class="bi bi-file-earmark-text"></i>
                             </div>
-                            <a href="pricing.html" class="stretched-link">
+                            <a href="{% url 'pricing' %}" class="stretched-link">
                                 <h3>Editable Text Output</h3>
                             </a>
                             <p>Receive your converted text in an editable format for easy review and sharing.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-translate"></i>
+                            </div>
+                            <a href="{% url 'pricing' %}" class="stretched-link">
+                                <h3>Multi-Language Support</h3>
+                            </a>
+                            <p>Convert handwriting in multiple languages, making your notes globally accessible.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <a href="{% url 'pricing' %}" class="stretched-link">
+                                <h3>Secure Data Processing</h3>
+                            </a>
+                            <p>Your data is processed securely and privately, ensuring your information remains confidential.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-file-earmark-arrow-down"></i>
+                            </div>
+                            <a href="{% url 'pricing' %}" class="stretched-link">
+                                <h3>Downloadable Formats</h3>
+                            </a>
+                            <p>Download your converted text in various formats, including .txt, .docx, and .pdf.</p>
                         </div>
                     </div>
 
@@ -232,107 +265,65 @@
 
         </section>
 
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative">
-                <div class="icon">
-                    <i class="bi bi-translate"></i>
-                </div>
-                <a href="pricing.html" class="stretched-link">
-                    <h3>Multi-Language Support</h3>
-                </a>
-                <p>Convert handwriting in multiple languages, making your notes globally accessible.</p>
+        <section id="clients" class="section clients">
+
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Users & Partners</h2>
+                <p>InkWise is trusted by a growing community of users and partners, including students, professionals, and organizations seeking efficient handwriting digitization.</p>
             </div>
-        </div>
 
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item position-relative">
-                <div class="icon">
-                    <i class="bi bi-shield-check"></i>
-                </div>
-                <a href="pricing.html" class="stretched-link">
-                    <h3>Secure Data Processing</h3>
-                </a>
-                <p>Your data is processed securely and privately, ensuring your information remains confidential.</p>
-            </div>
-        </div>
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item position-relative">
-                <div class="icon">
-                    <i class="bi bi-file-earmark-arrow-down"></i>
-                </div>
-                <a href="pricing.html" class="stretched-link">
-                    <h3>Downloadable Formats</h3>
-                </a>
-                <p>Download your converted text in various formats, including .txt, .docx, and .pdf.</p>
-            </div>
-        </div>
-
-        </div>
-
-        </div>
-
-    </section>
-
-    <section id="clients" class="section clients">
-
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Users & Partners</h2>
-            <p>InkWise is trusted by a growing community of users and partners, including students, professionals, and organizations seeking efficient handwriting digitization.</p>
-        </div>
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="swiper init-swiper">
-                <script type="application/json" class="swiper-config">
-                    {
-                        "loop": true,
-                        "speed": 600,
-                        "autoplay": {
-                            "delay": 5000
-                        },
-                        "slidesPerView": "auto",
-                        "pagination": {
-                            "el": ".swiper-pagination",
-                            "type": "bullets",
-                            "clickable": true
-                        },
-                        "breakpoints": {
-                            "320": {
-                                "slidesPerView": 2,
-                                "spaceBetween": 40
+                <div class="swiper init-swiper">
+                    <script type="application/json" class="swiper-config">
+                        {
+                            "loop": true,
+                            "speed": 600,
+                            "autoplay": {
+                                "delay": 5000
                             },
-                            "480": {
-                                "slidesPerView": 3,
-                                "spaceBetween": 60
+                            "slidesPerView": "auto",
+                            "pagination": {
+                                "el": ".swiper-pagination",
+                                "type": "bullets",
+                                "clickable": true
                             },
-                            "640": {
-                                "slidesPerView": 4,
-                                "spaceBetween": 80
-                            },
-                            "992": {
-                                "slidesPerView": 6,
-                                "spaceBetween": 120
+                            "breakpoints": {
+                                "320": {
+                                    "slidesPerView": 2,
+                                    "spaceBetween": 40
+                                },
+                                "480": {
+                                    "slidesPerView": 3,
+                                    "spaceBetween": 60
+                                },
+                                "640": {
+                                    "slidesPerView": 4,
+                                    "spaceBetween": 80
+                                },
+                                "992": {
+                                    "slidesPerView": 6,
+                                    "spaceBetween": 120
+                                }
                             }
                         }
-                    }
-                </script>
-                <div class="swiper-wrapper align-items-center">
-                    <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt="User 1"></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt="User 2"></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt="User 3"></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt="User 4"></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt="User 5"></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt="User 6"></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt="Partner 1"></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt="Partner 2"></div>
+                    </script>
+                    <div class="swiper-wrapper align-items-center">
+                        <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-1.png' %}" class="img-fluid" alt="User 1"></div>
+                        <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-2.png' %}" class="img-fluid" alt="User 2"></div>
+                        <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-3.png' %}" class="img-fluid" alt="User 3"></div>
+                        <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-4.png' %}" class="img-fluid" alt="User 4"></div>
+                        <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-5.png' %}" class="img-fluid" alt="User 5"></div>
+                        <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-6.png' %}" class="img-fluid" alt="User 6"></div>
+                        <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-7.png' %}" class="img-fluid" alt="Partner 1"></div>
+                        <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-8.png' %}" class="img-fluid" alt="Partner 2"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
-                <div class="swiper-pagination"></div>
+
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
     </main>
 
@@ -358,7 +349,7 @@
         <div class="container footer-top">
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-6 footer-about">
-                    <a href="index.html" class="d-flex align-items-center">
+                    <a href="{% url 'index' %}" class="d-flex align-items-center">
                         <span class="sitename">InkWise</span>
                     </a>
                     <div class="footer-contact pt-3">
@@ -372,9 +363,9 @@
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>Useful Links</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#about">About Us</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#services">Services</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="{% url 'index' %}">Home</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="{% url 'about' %}">About Us</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="{% url 'services' %}">Services</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy Policy</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of Service</a></li>
                     </ul>
@@ -383,10 +374,10 @@
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>Our Services</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a href="pricing.html">Image Upload</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="pricing.html">Direct Drawing</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="pricing.html">Multi-Language Support</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="pricing.html">Download Formats</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="{% url 'pricing' %}">Image Upload</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="{% url 'pricing' %}">Direct Drawing</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="{% url 'pricing' %}">Multi-Language Support</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="{% url 'pricing' %}">Download Formats</a></li>
                     </ul>
                 </div>
 
@@ -417,17 +408,17 @@
 
     <div id="preloader"></div>
 
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
 
-    <script src="assets/js/main.js"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
 
 </body>
 
