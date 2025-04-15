@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Convert Now - InkWise</title>
+    <meta name="description" content="Convert your handwriting to digital text with InkWise. Choose from free or premium plans for advanced features.">
+    <meta name="keywords" content="handwriting recognition, convert now, premium plans, OCR, image to text, draw to text">
+
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="pricing-page">
+
+    <header id="header" class="header sticky-top">
+
+        <div class="topbar d-flex align-items-center dark-background">
+            <div class="container d-flex justify-content-center justify-content-md-between">
+                <div class="contact-info d-flex align-items-center">
+                    <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:support@inkwise.com">support@inkwise.com</a></i>
+                    <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 555 123 4567</span></i>
+                </div>
+                <div class="social-links d-none d-md-flex align-items-center">
+                    <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="branding">
+
+            <div class="container position-relative d-flex align-items-center justify-content-between">
+                <a href="{% url 'index' %}" class="logo d-flex align-items-center">
+                    <h1 class="sitename">InkWise</h1>
+                </a>
+
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'services' %}">Services</a></li>
+                        <li><a href="{% url 'pricing' %}" class="active">Convert Now</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                        <li><a href="{% url 'team' %}">Our Team</a></li>
+                    </ul>
+                    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                </nav>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main class="main">
+
+        <div class="page-title" data-aos="fade">
+            <div class="container">
+                <nav class="breadcrumbs">
+                    <ol>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="current">Convert Now</li>
+                    </ol>
+                </nav>
+                <h1>Convert Now</h1>
+                <div class="text-center mt-4">
+                    <button id="convertOptionsButton" class="btn btn-primary btn-lg">Convert Now</button>
+                    <div id="convertOptions" style="display: none;">
+                        <button id="writeCanvasButton">Write on Canvas</button>
+                        <button id="uploadImageButton">Upload Image</button>
+                    </div>
+                    <div id="canvasArea" style="display: none;">
+                        <canvas id="handwritingCanvas" width="800" height="600" style="background-color: lightgray;"></canvas>
+                        <br>
+                        <button id="clearCanvas">Clear</button>
+                        <button id="processCanvas">Process Handwriting</button>
+                        <div id="ocrResults"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="pricing" class="pricing section">
+
+            <div class="container" data-aos="zoom-in" data-aos-delay="100">
+
+                <div class="row g-4">
+
+                    <div class="col-lg-4">
+                        <div class="pricing-item">
+                            <h3>Free Conversion</h3>
+                            <div class="icon">
+                                <i class="bi bi-box"></i>
+                            </div>
+                            <h4><sup>₹</sup>0<span> / Forever</span></h4>
+                            <ul>
+                                <li><i class="bi bi-check"></i> <span>Basic handwriting recognition</span></li>
+                                <li><i class="bi bi-check"></i> <span>Limited image upload size</span></li>
+                                <li><i class="bi bi-check"></i> <span>Standard conversion speed</span></li>
+                                <li class="na"><i class="bi bi-x"></i> <span>Advanced language support</span></li>
+                                <li class="na"><i class="bi bi-x"></i> <span>High-resolution output</span></li>
+                            </ul>
+                            <div class="text-center"><a href="#input-area" class="buy-btn">Start Converting</a></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="pricing-item featured">
+                            <h3>Premium - Standard</h3>
+                            <div class="icon">
+                                <i class="bi bi-rocket"></i>
+                            </div>
+
+                            <h4><sup>₹</sup>159<span> / month</span></h4>
+                            <ul>
+                                <li><i class="bi bi-check"></i> <span>Enhanced handwriting recognition</span></li>
+                                <li><i class="bi bi-check"></i> <span>Increased image upload size</span></li>
+                                <li><i class="bi bi-check"></i> <span>Faster conversion speed</span></li>
+                                <li><i class="bi bi-check"></i> <span>Advanced language support</span></li>
+                                <li class="na"><i class="bi bi-x"></i> <span>High-resolution output</span></li>
+                            </ul>
+                            <div class="text-center"><a href="#input-area" class="buy-btn">Upgrade Now</a></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="pricing-item">
+                            <h3>Premium - Pro</h3>
+                            <div class="icon">
+                                <i class="bi bi-send"></i>
+                            </div>
+                            <h4><sup>₹</sup>499<span> / month</span></h4>
+                            <ul>
+                                <li><i class="bi bi-check"></i> <span>Advanced handwriting recognition</span></li>
+                                <li><i class="bi bi-check"></i> <span>Unlimited image upload size</span></li>
+                                <li><i class="bi bi-check"></i> <span>Ultra-fast conversion speed</span></li>
+                                <li><i class="bi-check"></i> <span>Full language support</span></li>
+                                <li><i class="bi bi-check"></i> <span>High-resolution output</span></li>
+                            </ul>
+                            <div class="text-center"><a href="#input-area" class="buy-btn">Upgrade Now</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" class="footer position-relative dark-background">
+    </footer>
+
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <div id="preloader"></div>
+
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/js/canvas.js' %}"></script>
+    <script>
+        document.getElementById('convertOptionsButton').addEventListener('click', function() {
+            document.getElementById('convertOptions').style.display = 'block';
+        });
+
+        document.getElementById('writeCanvasButton').addEventListener('click', function() {
+            document.getElementById('convertOptions').style.display = 'none';
+            document.getElementById('canvasArea').style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>
