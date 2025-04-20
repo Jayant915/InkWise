@@ -2598,3 +2598,11 @@ section,
   border-radius: 5px;
   background-color: #f9f9f9;
 }
+
+#upload-form {
+  margin-bottom: 20px;
+}
+
+#image-upload {
+  margin-right: 10px;
+}

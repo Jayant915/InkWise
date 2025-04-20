@@ -8,4 +8,5 @@ urlpatterns = [
     path('pricing/', views.pricing, name='pricing'), # Example: pricing.html
     path('contact/', views.contact, name='contact'), # Example: contact.html
     path('team/', views.team, name='team'), # Example: team.html
+    path('upload/', views.upload_and_process_image, name='upload_image'),
 ]
