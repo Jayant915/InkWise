@@ -6,6 +6,7 @@ from django.core.files.storage import default_storage
 from PIL import Image
 import pytesseract
 import os
+import requests
 
 #def home(request):
 #    return HttpResponse("Hello, Django!")
@@ -39,33 +40,51 @@ def upload_and_process_image(request):
         if form.is_valid():
             image = form.cleaned_data['image']
             try:
+                # Save uploaded image temporarily
+                temp_image_path = default_storage.save('temp_uploaded_image.jpg', image)
+                image_file_path = default_storage.path(temp_image_path)
 
-                tesseract_path = r'Inkwise\myapp\static\Tesseract-OCR\tesseract.exe'
-                if os.path.exists(tesseract_path):
-                    pytesseract.pytesseract.tesseract_cmd = tesseract_path
-                else:
-                    print(f"Warning: Tesseract not found at {tesseract_path}. Ensure it's in your PATH.")
-                # --- End of Path Configuration ---
+                # Prepare the API request
+                with open(image_file_path, 'rb') as img_file:
+                    response = requests.post(
+                        'https://api.ocr.space/parse/image',
+                        files={'filename': img_file},
+                        data={
+                            'apikey': 'K81632843188957',
+                            'language': 'eng',
+                            'OCREngine': 2
+                        }
+                    )
+                    response.raise_for_status()  # Raise an exception for HTTP errors (4xx or 5xx)
 
-                # Save the uploaded image temporarily
-                temp_image_path = default_storage.save('temp_image.jpg', image)  # Or .png, etc.
-                img = Image.open(default_storage.path(temp_image_path))
-                extracted_text = pytesseract.image_to_string(img)
-
-                # Optionally, delete the temporary file (or keep it if needed)
+                # Clean up temp file
                 default_storage.delete(temp_image_path)
+
+                # Process response
+                result = response.json()
+                extracted_text = ""
+                if "ParsedResults" in result and isinstance(result["ParsedResults"], list) and len(result["ParsedResults"]) > 0:
+                    first_result = result["ParsedResults"][0]
+                    if "ParsedText" in first_result:
+                        extracted_text = first_result["ParsedText"]
+                    else:
+                        print("Warning: 'ParsedText' key not found in the first ParsedResult.")
+                        extracted_text = "Could not extract text from the image."
+                else:
+                    print("Warning: 'ParsedResults' not found or is empty in the API response.")
+                    extracted_text = "Could not process the image."
 
                 context = {'text': extracted_text}
                 return render(request, 'result.html', context)
 
+            except requests.exceptions.RequestException as e:
+                print(f"Error during OCR API request: {e}")
+                return HttpResponse(f"Error processing image: Could not connect to the OCR service.")
             except Exception as e:
-                # Log the error for debugging (very important in production)
-                print(f"Error processing image: {e}")
-                return HttpResponse(f"Error processing image: {e}")
+                print(f"Error processing OCR API response: {e}")
+                return HttpResponse(f"Error processing image: An unexpected error occurred.")
         else:
-            # Form is invalid
             return render(request, 'pricing.html', {'form': form, 'error': 'Invalid form. Please upload a valid image.'})
     else:
-        # GET request
         form = UploadImageForm()
         return render(request, 'pricing.html', {'form': form})

@@ -48,11 +48,49 @@
             font-size: 16px;
             color: #444;
             overflow-x: auto;
+            position: relative; /* For positioning the copy button */
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .copy-button:hover {
+            opacity: 1;
+        }
+
+        .copy-button i {
+            font-size: 1.2em;
+            color: #007bff; /* Bootstrap primary color */
         }
 
         .back-button {
             margin-top: 20px;
             text-align: center;
+        }
+
+        .copy-success-message {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .copy-success-message.show {
+            opacity: 1;
         }
     </style>
 </head>
@@ -64,7 +102,7 @@
             <div class="container d-flex justify-content-center justify-content-md-between">
                 <div class="contact-info d-flex align-items-center">
                     <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:support@inkwise.com">support@inkwise.com</a></i>
-                    <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 555 123 4567</span></i>
+                    <i class="bi bi-phone d-flex align-items-center ms-4"><span>+91 9155540704</span></i>
                 </div>
                 <div class="social-links d-none d-md-flex align-items-center">
                     <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
@@ -113,7 +151,13 @@
                 <div class="result-container">
                     <h2 class="result-title">Extracted Text</h2>
                     <div class="extracted-text-box">
-                        <pre>{{ text }}</pre>
+                        <button class="copy-button" onclick="copyText()">
+                            <i class="bi bi-clipboard"></i>
+                        </button>
+                        <div id="copy-success" class="copy-success-message">
+                            Copied!
+                        </div>
+                        <pre id="extracted-text">{{ text }}</pre>
                     </div>
                     <div class="back-button">
                         <a href="{% url 'pricing' %}" class="btn btn-secondary">Convert Another Image</a>
@@ -149,6 +193,24 @@
     <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
 
     <script src="{% static 'assets/js/main.js' %}"></script>
+
+    <script>
+        function copyText() {
+            const textToCopy = document.getElementById("extracted-text").innerText;
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => {
+                    const copySuccessMessage = document.getElementById("copy-success");
+                    copySuccessMessage.classList.add("show");
+                    setTimeout(() => {
+                        copySuccessMessage.classList.remove("show");
+                    }, 1500); // Hide message after 1.5 seconds
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    alert('Failed to copy text. Please try again.');
+                });
+        }
+    </script>
 
 </body>
 
