@@ -88,3 +88,5 @@ def upload_and_process_image(request):
     else:
         form = UploadImageForm()
         return render(request, 'pricing.html', {'form': form})
+
+
