@@ -20,6 +20,9 @@ It leverages **OCR (Optical Character Recognition)** technology and provides a s
 - **OCR API:** OCR.Space, pytesserect
 - **Frontend:** HTML, CSS, Bootstrap
 
+  <img width="355" height="300" alt="image" src="https://github.com/user-attachments/assets/54dffb59-36df-4d59-8626-45d5090dda73" />
+
+
 ---
 
 ## 📂 Project Structure
@@ -92,6 +95,15 @@ InkWise/<br>
 * Text-to-Speech integration for extracted content.
 * Multi-language handwriting recognition.
 * User authentication & saved notes history.
+
+---
+
+## 📈 Performance Summary
+
+<img width="493" height="437" alt="image" src="https://github.com/user-attachments/assets/bf2b5a09-2b79-4e12-ae90-8705848f04c6" /> <img width="495" height="432" alt="image" src="https://github.com/user-attachments/assets/933a952e-e3f8-4d6a-84ed-da43f340dfd5" />
+
+
+
 
 ---
 
