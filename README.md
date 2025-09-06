@@ -22,16 +22,18 @@ It leverages **OCR (Optical Character Recognition)** technology and provides a s
 
 ---
 
+```
+
 ## 📂 Project Structure
 
 InkWise/
-│── media/         # Uploaded images
-│── myapp/         # Core application logic
-│── mysite/        # Django project configuration
-│── db.sqlite3     # SQLite database (default)
-│── manage.py      # Django project manager
+│── media/    Uploaded images
+│── myapp/    Core application logic
+│── mysite/   Django project configuration
+│── db.sqlite3  SQLite database (default)
+│── manage.py  Django project manager
 
-````
+```
 
 ---
 
