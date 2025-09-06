@@ -22,23 +22,22 @@ It leverages **OCR (Optical Character Recognition)** technology and provides a s
 
 ---
 
-```
-
 ## 📂 Project Structure
 
-InkWise/
-│── media/    Uploaded images
-│── myapp/    Core application logic
-│── mysite/   Django project configuration
-│── db.sqlite3  SQLite database (default)
-│── manage.py  Django project manager
-
-```
+InkWise/<br>
+│── media/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Uploaded images<br>
+│── myapp/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;#Core application logic<br>
+│── mysite/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Django project configuration<br>
+│── db.sqlite3  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#SQLite database (default)<br>
+│── manage.py &nbsp;&nbsp;&nbsp;&nbsp;#Django project manager<br>
 
 ---
 
 ## ⚙️ Installation & Setup
-1. Clone the repository:
+
+
+**1. Clone the repository:**
+```
    ```bash
    git clone https://github.com/yourusername/InkWise.git
    cd InkWise
@@ -110,6 +109,6 @@ This project is licensed under the **MIT License** – feel free to use and modi
 
 ## 👨‍💻 Author
 
-Developed by **Jayant915**
+Developed by **Jayant915**<br>
 InkWise – Making handwritten notes smarter ✨
 
